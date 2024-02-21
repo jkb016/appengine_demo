@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1" metadata-complete="true">
+
+  <display-name>Mail test</display-name>
+  <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>com.collavate.servlet.MyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/hello/*</url-pattern>
+        <url-pattern>/_ah/mail/*</url-pattern>
+    </servlet-mapping>
+    
+    <security-constraint>
+  <web-resource-collection>
+    <web-resource-name>MyServlet</web-resource-name>
+    <url-pattern>/_ah/mail/*</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+    <role-name>admin</role-name>
+  </auth-constraint>
+</security-constraint>
+</web-app>
